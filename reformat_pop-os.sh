@@ -47,7 +47,7 @@ sudo rm ./google-chrome-stable_current_amd64.deb -y
 sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extensions -y
 sudo apt install chrome-gnome-shell -y
-sudo apt install gnome-shell-extension-manager
+sudo snap install gnome-shell-extension-manager
 
 ## Instalando o VSCode
 sudo snap install code --classic 
