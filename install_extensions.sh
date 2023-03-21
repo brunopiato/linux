@@ -62,19 +62,19 @@ killall -3 gnome-shell
 #------------------------------------------------------------------
 #Ativando as extensões
 #------------------------------------------------------------------
-gnome-shell-extension-tool -e arcmenu@arcmenu.com
-gnome-shell-extension-tool -e ControlBlurEffectOnLockScreen@pratap.fastmail.fm
-gnome-shell-extension-tool -e dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com
-gnome-shell-extension-tool -e gnome-clipboard@b00f.github.io
-gnome-shell-extension-tool -e just-perfection-desktop@just-perfection
-gnome-shell-extension-tool -e maximize-to-workspace@raonetwo.github.com
-gnome-shell-extension-tool -e mediacontrols@cliffniff.github.com
-gnome-shell-extension-tool -e openweather-extension@jenslody.de
-gnome-shell-extension-tool -e rounded-window-corners@yilozt
-gnome-shell-extension-tool -e switchWorkSpace@sun.wxg@gmail.com
-gnome-shell-extension-tool -e timepp@zagortenay333
-gnome-shell-extension-tool -e unite@hardpixel.eu
-gnome-shell-extension-tool -e widgets@aylur
+gnome-extensions enable arcmenu@arcmenu.com
+gnome-extensions enable ControlBlurEffectOnLockScreen@pratap.fastmail.fm
+gnome-extensions enable dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com
+gnome-extensions enable gnome-clipboard@b00f.github.io
+gnome-extensions enable just-perfection-desktop@just-perfection
+gnome-extensions enable maximize-to-workspace@raonetwo.github.com
+gnome-extensions enable mediacontrols@cliffniff.github.com
+gnome-extensions enable openweather-extension@jenslody.de
+gnome-extensions enable rounded-window-corners@yilozt
+gnome-extensions enable switchWorkSpace@sun.wxg@gmail.com
+gnome-extensions enable timepp@zagortenay333
+gnome-extensions enable unite@hardpixel.eu
+gnome-extensions enable widgets@aylur
 
 
 
