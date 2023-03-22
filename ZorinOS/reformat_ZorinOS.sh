@@ -211,6 +211,8 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/just-perfection-desktopjust-perfe
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-extension.zip -d \
  ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
 
+killall -3 gnome-shell
+
 
 gnome-extensions enable dash-to-plank@hardpixel.eu
 
