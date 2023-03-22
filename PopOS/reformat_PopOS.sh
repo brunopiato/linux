@@ -228,24 +228,26 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
 
-
 sleep 2
-echo "A INSTALAÇÃO ESTÁ QUASE ACABANDO. FALTA INSTALAR AS EXTENSÕES DO GNOME-SHELL"
+var=$(pwd)
+sleep 1
+echo "A INSTALAÇÃO ESTÁ TERMINANDO!"
+echo "NÓS ESTAMOS TRABALHANDO NO DIRETÓRIO: $var."
+echo "VOCÊ GOSTARIA DE INSTALAR AS SEGUINTES EXTENSÕES DO GNOME-SHELL:"
 echo ""
+ls -l $var/extencoes_gnome42
 
-sleep 2
-echo "ELAS ESTÃO NA PASTA CLONADA DO GITHUB ('~/linux/PopOS/') "
-
-sleep 2
-echo "Reiniciar agora?[S/N]: "
+sleep 1
+echo "INSTALAR AGORA?[S/N]: "
 read resposta
 if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot 
-else sleep 2 
-echo "Reinicie o computador assim que possível."
+bash ./install_extensions_PopOS.sh
+echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
+echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
+else sleep 1
+echo "OK. VOCÊ PODE INSTALá-LAS MAIS TARDE A PARTIR DA LISTA DE EXTENSÕES CRIADA NA SUA PASTA PESSOAL (home)."
+bash ./write_ext_list_PopOS.sh
 fi
-
-
 
 
 

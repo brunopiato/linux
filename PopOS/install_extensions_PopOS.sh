@@ -47,29 +47,32 @@ unzip $var/extencoes_gnome42/widgetsaylur.v20.shell-extension.zip -d \
 
 
 
-#------------------------------------------------------------------
-#Resetando o GNOME shell
-#------------------------------------------------------------------
-
-killall -3 gnome-shell
-
 
 
 #------------------------------------------------------------------
 #Ativando as extensões
 #------------------------------------------------------------------
-gnome-extensions enable arcmenu@arcmenu.com
-gnome-extensions enable ControlBlurEffectOnLockScreen@pratap.fastmail.fm
-gnome-extensions enable dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com
-gnome-extensions enable gnome-clipboard@b00f.github.io
-gnome-extensions enable just-perfection-desktop@just-perfection
-gnome-extensions enable maximize-to-workspace@raonetwo.github.com
-gnome-extensions enable mediacontrols@cliffniff.github.com
-gnome-extensions enable openweather-extension@jenslody.de
-gnome-extensions enable rounded-window-corners@yilozt
-gnome-extensions enable switchWorkSpace@sun.wxg@gmail.com
-gnome-extensions enable timepp@zagortenay333
-gnome-extensions enable unite@hardpixel.eu
-gnome-extensions enable widgets@aylur
-
+#gnome-extensions enable arcmenu@arcmenu.com
+#gnome-extensions enable ControlBlurEffectOnLockScreen@pratap.fastmail.fm
+#gnome-extensions enable dash-to-dock-cosmic-@halfmexicanhalfamazing@gmail.com
+#gnome-extensions enable gnome-clipboard@b00f.github.io
+#gnome-extensions enable just-perfection-desktop@just-perfection
+#gnome-extensions enable maximize-to-workspace@raonetwo.github.com
+#gnome-extensions enable mediacontrols@cliffniff.github.com
+#gnome-extensions enable openweather-extension@jenslody.de
+#gnome-extensions enable rounded-window-corners@yilozt
+#gnome-extensions enable switchWorkSpace@sun.wxg@gmail.com
+#gnome-extensions enable timepp@zagortenay333
+#gnome-extensions enable unite@hardpixel.eu
+#gnome-extensions enable widgets@aylur
+#
+#
+#
+#
+#
+##------------------------------------------------------------------
+##Resetando o GNOME shell
+##------------------------------------------------------------------
+#
+#killall -3 gnome-shell
 
