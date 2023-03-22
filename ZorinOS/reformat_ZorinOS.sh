@@ -37,6 +37,10 @@ sudo apt install gparted -y
 sudo apt install os-prober -y
 sudo apt install unzip
 
+## Instalando utilitários do Zorin OS
+sudo apt install plank
+
+
 ## Instalando o Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
@@ -194,40 +198,25 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
 
 
-
-#-----------------------------------------------------------------------------------------
-# Arrumando o menu de boot no ****Pop!OS****
-#-----------------------------------------------------------------------------------------
-
-#sudo mount /dev/nvme0n1p1 /mnt 
-#cd /mnt/EFI
-#
-#sudo cp -ax Microsoft /boot/efi/EFI
-#
-#sudo echo "timeout 5
-#console-mode max" >> /boot/efi/loader/loader.conf
-
-
-
-
-
-
-#-----------------------------------------------------------------------------------------
-# Instalando o grub-customizer no ****Ubuntu****
-#-----------------------------------------------------------------------------------------
-#
-#sudo add-apt-repository ppa:danielrichter2007/grub-customizer
-#sudo apt install grub-customizer -y
-
-
-
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
 
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/dash-to-plankhardpixel.eu.v15.shell-extension.zip -d \
+ ~/.local/share/gnome-shell/extensions/dash-to-plank@hardpixel.eu
+
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/just-perfection-desktopjust-perfection.v24.shell-extension.zip -d \
+ ~/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection
+
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-extension.zip -d \
+ ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+
+
+gnome-extensions enable dash-to-plank@hardpixel.eu
+
+gnome-extensions enable just-perfection-desktop@just-perfection
+
+gnome-extensions enable unite@hardpixel.eu
 
 
 
