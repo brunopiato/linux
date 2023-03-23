@@ -201,6 +201,8 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
 
+mkdir /home/bruno/.local/share/gnome-shell/extensions
+
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/dash-to-plankhardpixel.eu.v15.shell-extension.zip -d \
  ~/.local/share/gnome-shell/extensions/dash-to-plank@hardpixel.eu
 
