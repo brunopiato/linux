@@ -2,8 +2,8 @@
 
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Este arquivo serve como 
-automatizacao do processo 
+Este arquivo serve como
+automatizacao do processo
 pos-instalacao e formatacao
 do OS com Ubuntu.
 COMMENT
@@ -50,10 +50,9 @@ sudo rm ./google-chrome-stable_current_amd64.deb
 sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extensions -y
 sudo apt install chrome-gnome-shell -y
-sudo apt install gnome-shell-extension-manager
 
 ## Instalando o VSCode
-sudo snap install code --classic 
+sudo snap install code --classic
 
 ## Instalando aplicativos do Snap
 sudo snap install drawio #Drawio
@@ -153,7 +152,7 @@ sudo rm ./JupyterLab-Setup-Debian.deb
 
 
 #-----------------------------------------------------------------------------------------
-# Instalando o R 
+# Instalando o R
 #-----------------------------------------------------------------------------------------
 
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
@@ -211,15 +210,6 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/just-perfection-desktopjust-perfe
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-extension.zip -d \
  ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
 
-killall -3 gnome-shell
-
-
-gnome-extensions enable dash-to-plank@hardpixel.eu
-
-gnome-extensions enable just-perfection-desktop@just-perfection
-
-gnome-extensions enable unite@hardpixel.eu
-
 
 
 
@@ -237,7 +227,7 @@ VÁ ATÉ LÁ VERIFICÁ-LAS."
 echo ""
 
 sleep 2
-echo "A instalação terminou, mas precisamos reiniciar o computador."
+echo "A instalação terminou, mas precisamos reiniciar o computador para que as alterações tenham efeito."
 
 sleep 2
 echo "Reiniciar agora?[S/N]: "
