@@ -2,10 +2,35 @@
 
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Este arquivo serve como
-automatizacao do processo
-pos-instalacao e formatacao
-do OS com Ubuntu.
+
+Zorin OS 16 (latest version in 24/03/2023)
+Base system	
+    Ubuntu 20.04 LTS
+Supported until (with software updates and security patches) 
+    April 2025
+Initially released	
+    17 August 2021
+Supported app formats	
+    APT
+    Flatpak
+    Snap
+    .deb
+    AppImage
+    .exe & .msi
+    (with optional Windows App Support)
+Default software repositories	
+    Zorin OS APT repositories
+    Ubuntu packages
+    Flathub
+    Snap Store
+Desktop environment	
+    GNOME Shell (Core & Pro editions)
+    XFCE (Lite editions)
+Linux kernel version	
+    5.15
+Processor architecture support	
+    64-bit x86 Intel or AMD CPUs
+
 COMMENT
 
 
@@ -77,12 +102,11 @@ nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre -y
-
-sudo touch /etc/profile.d/calibre.sh
 sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
-sudo curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+sleep 1
 sudo usermod -aG nordvpn $USER
 
 
@@ -160,13 +184,15 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
 echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
 sudo apt update
-sudo apt install r-base -y
+sudo apt install r-base
 R --version
 
 ## Instalando o RStudio
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb
-sudo apt install -f ./rstudio-2022.12.0-353-amd64.deb -y
-sudo rm ./rstudio-2022.12.0-353-amd64.deb
+wget -c https://download1.rstudio.org/electron/bionic/amd64/rstudio-2023.03.0-386-amd64.deb
+sudo dpkg -i ./rstudio-2023.03.0-386-amd64.deb
+sudo rm -r ./rstudio-2023.03.0-386-amd64.deb
+
+
 
 
 
@@ -176,8 +202,7 @@ sudo rm ./rstudio-2022.12.0-353-amd64.deb
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
 
-sudo apt install julia -y #--classic #No Ubuntu é necessário adicionar o --classic
-
+sudo apt install julia -y 
 
 
 

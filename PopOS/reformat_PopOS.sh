@@ -74,14 +74,12 @@ nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre -y
-
-sudo touch /etc/profile.d/calibre.sh
 sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
-sudo curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+sleep 1
 sudo usermod -aG nordvpn $USER
-
 
 
 
