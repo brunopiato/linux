@@ -46,8 +46,6 @@ sudo apt update && sudo apt upgrade
 
 
 
-
-
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
@@ -64,6 +62,7 @@ sudo apt install unzip
 
 ## Instalando utilitários do Zorin OS
 sudo apt install plank
+flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 
 ## Instalando o Google Chrome
@@ -236,6 +235,10 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/just-perfection-desktopjust-perfe
 
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-extension.zip -d \
  ~/.local/share/gnome-shell/extensions/unite@hardpixel.eu
+
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/timepp-master.zip -d \
+ ~/.local/share/gnome-shell/extensions/timepp@zagortenay333
+
 
 
 
