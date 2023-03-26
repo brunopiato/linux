@@ -215,7 +215,8 @@ sudo apt install julia -y
 gsettings set org.gnome.SessionManager logout-prompt false
 
 ## Adicionando atalhos de teclado
-gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']"
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
