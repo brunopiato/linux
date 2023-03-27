@@ -56,9 +56,10 @@ sudo apt install neofetch
 sudo apt install curl
 sudo apt install snapd
 sudo snap install snap-store
-sudo apt install gparted -y
-sudo apt install os-prober -y
+sudo apt install gparted
+sudo apt install os-prober
 sudo apt install unzip
+sudo apt install dconf-editor+
 
 ## Instalando utilitários do Zorin OS
 sudo apt install plank
@@ -208,6 +209,10 @@ sudo apt install julia -y
 
 ## Tirando o tempo de espera do botão desligar
 gsettings set org.gnome.SessionManager logout-prompt false
+
+## Adicionando atalhos de teclado
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
