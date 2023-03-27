@@ -133,10 +133,10 @@ sudo apt install git -y
 #sudo apt install python3.11 -y
 #
 ## Instalando o gerenciador de pacotes do Python
-sudo apt install python3-pip -y
+sudo apt install python3-pip
 sudo pip3 install --upgrade pip
 pip install --upgrade pip
-pip install cython -y
+pip install cython
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
@@ -148,10 +148,6 @@ export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
-pyenv install 3.11
-pyenv virtualenv 3.11 ambiente
-pyenv activate ambiente
 
 ## Instalando kernel iPython
 python3 -m pip install ipykernel
