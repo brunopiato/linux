@@ -59,7 +59,7 @@ sudo snap install snap-store
 sudo apt install gparted
 sudo apt install os-prober
 sudo apt install unzip
-sudo apt install dconf-editor+
+sudo apt install dconf-editor
 
 ## Instalando utilitários do Zorin OS
 sudo apt install plank
