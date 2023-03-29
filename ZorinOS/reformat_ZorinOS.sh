@@ -158,9 +158,9 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
-wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
-sudo apt install ./JupyterLab-Setup-Debian.deb
-sudo rm ./JupyterLab-Setup-Debian.deb
+#wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
+#sudo apt install ./JupyterLab-Setup-Debian.deb
+#sudo rm ./JupyterLab-Setup-Debian.deb
 
 
 
