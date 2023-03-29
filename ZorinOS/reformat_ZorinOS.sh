@@ -126,8 +126,9 @@ sudo apt install git
 #
 ## Instalando o gerenciador de pacotes do Python
 sudo apt install python3-pip
-sudo pip3 install --upgrade pip
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
+sudo apt install python3.8-venv
+pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
 pip install cython #Adiciona funcionalidades da linguagem C ao Python
 pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
 pip install pipreqs #Um pacote para criar arquivo requirements.tx
@@ -147,11 +148,11 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-#python3 -m pip install ipykernel
+#python3 -m pipx install ipykernel --include-deps
 #python3 -m ipykernel install --user
 
 ## Instalando o Jupyter Notebook
-#pip install notebook
+#pipx install notebook
 
 ## Instalando o Jupyter Notebook e suas extensões
 #pip install jupyter_contrib_nbextensions
