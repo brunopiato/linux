@@ -40,7 +40,6 @@ COMMENT
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
-
 sudo apt update && sudo apt upgrade
 
 
@@ -49,7 +48,6 @@ sudo apt update && sudo apt upgrade
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
-
 ## Instalando utilitários do Ubuntu
 sudo apt install tree
 sudo apt install neofetch
@@ -112,25 +110,17 @@ sudo usermod -aG nordvpn $USER
 
 
 
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
-
 sudo apt update
 sudo apt install git
-
-
-
 
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
-
 ## Instalando o Python
 #sudo apt install python3.11 -y
 #
@@ -138,7 +128,12 @@ sudo apt install git
 sudo apt install python3-pip
 sudo pip3 install --upgrade pip
 pip install --upgrade pip
-pip install cython
+pip install cython #Adiciona funcionalidades da linguagem C ao Python
+pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
+pip install pipreqs #Um pacote para criar arquivo requirements.tx
+pip install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
+pip install pipdeptree #Mostra as dependências de cada pacote
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
@@ -175,7 +170,6 @@ sudo rm ./JupyterLab-Setup-Debian.deb
 #-----------------------------------------------------------------------------------------
 # Instalando o R
 #-----------------------------------------------------------------------------------------
-
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
@@ -198,16 +192,13 @@ sudo rm -r ./rstudio-2023.03.0-386-amd64.deb
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
-
 sudo apt install julia
-
 
 
 
 #-----------------------------------------------------------------------------------------
 # Demais ajustes e configurações do sistema
 #-----------------------------------------------------------------------------------------
-
 ## Tirando o tempo de espera do botão desligar
 #gsettings set org.gnome.SessionManager logout-prompt false
 
@@ -221,12 +212,9 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
 
 
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
-
 mkdir /home/bruno/.local/share/gnome-shell/extensions
 
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/dash-to-plankhardpixel.eu.v15.shell-extension.zip -d \
@@ -241,7 +229,8 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-exten
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/timepp-master.zip -d \
  ~/.local/share/gnome-shell/extensions/timepp@zagortenay333
 
-
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/gnome-clipboardb00f.github.io.v17.shell-extension.zip -d \
+ ~/.local/share/gnome-shell/extensions/gnome-clipboard@b00f.github.io
 
 
 
@@ -250,7 +239,6 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/timepp-master.zip -d \
 #-----------------------------------------------------------------------------------------
 # Mensagem final
 #-----------------------------------------------------------------------------------------
-
 neofetch
 
 sleep 2
@@ -265,7 +253,7 @@ sleep 2
 echo "Reiniciar agora?[S/N]: "
 read resposta
 if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot 
-else sleep 2 
+reboot
+else sleep 2
 echo "Reinicie o computador assim que possível."
 fi

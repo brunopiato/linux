@@ -113,7 +113,12 @@ sudo apt install git
 sudo apt install python3-pip
 sudo pip3 install --upgrade pip
 pip install --upgrade pip
-pip install cython
+pip install cython #Adiciona funcionalidades da linguagem C ao Python
+pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
+pip install pipreqs #Um pacote para criar arquivo requirements.tx
+pip install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
+pip install pipdeptree #Mostra as dependências de cada pacote
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
