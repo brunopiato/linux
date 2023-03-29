@@ -4,13 +4,13 @@
 : << 'COMMENT'
 
 Zorin OS 16 (latest version in 24/03/2023)
-Base system	
+Base system
     Ubuntu 20.04 LTS
-Supported until (with software updates and security patches) 
+Supported until (with software updates and security patches)
     April 2025
-Initially released	
+Initially released
     17 August 2021
-Supported app formats	
+Supported app formats
     APT
     Flatpak
     Snap
@@ -18,17 +18,17 @@ Supported app formats
     AppImage
     .exe & .msi
     (with optional Windows App Support)
-Default software repositories	
+Default software repositories
     Zorin OS APT repositories
     Ubuntu packages
     Flathub
     Snap Store
-Desktop environment	
+Desktop environment
     GNOME Shell (Core & Pro editions)
     XFCE (Lite editions)
-Linux kernel version	
+Linux kernel version
     5.15
-Processor architecture support	
+Processor architecture support
     64-bit x86 Intel or AMD CPUs
 
 COMMENT
@@ -67,14 +67,14 @@ flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 
 ## Instalando o Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-sudo apt install ./google-chrome-stable_current_amd64.deb -y
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo rm ./google-chrome-stable_current_amd64.deb
 
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
-sudo apt install gnome-shell-extensions -y
-sudo apt install chrome-gnome-shell -y
+sudo apt install gnome-shell-extensions
+sudo apt install chrome-gnome-shell
 
 ## Instalando o VSCode
 sudo snap install code --classic
@@ -87,11 +87,11 @@ sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap #Notion
 sudo snap install pycharm-community --classic #PyCharm Community
-sudo apt install vlc -y #VLC Media Player
+sudo apt install vlc #VLC Media Player
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-sudo apt install ./dropbox_2020.03.04_amd64.deb -y
+sudo apt install ./dropbox_2020.03.04_amd64.deb
 sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
@@ -101,7 +101,8 @@ sudo apt install yaru-colors-folder-color folder-color  -y #Instalar o colorizad
 nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
-sudo apt-get install calibre -y
+sudo apt-get install calibre
+sudo touch /etc/profile.d/calibre.sh
 sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
@@ -119,7 +120,7 @@ sudo usermod -aG nordvpn $USER
 #-----------------------------------------------------------------------------------------
 
 sudo apt update
-sudo apt install git -y
+sudo apt install git
 
 
 
@@ -151,15 +152,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-python3 -m pip install ipykernel
-python3 -m ipykernel install --user
+#python3 -m pip install ipykernel
+#python3 -m ipykernel install --user
 
 ## Instalando o Jupyter Notebook
-pip install notebook
+#pip install notebook
 
 ## Instalando o Jupyter Notebook e suas extensões
-pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
+#pip install jupyter_contrib_nbextensions
+#jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
 wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
@@ -198,7 +199,7 @@ sudo rm -r ./rstudio-2023.03.0-386-amd64.deb
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
 
-sudo apt install julia -y 
+sudo apt install julia
 
 
 
@@ -208,7 +209,7 @@ sudo apt install julia -y
 #-----------------------------------------------------------------------------------------
 
 ## Tirando o tempo de espera do botão desligar
-gsettings set org.gnome.SessionManager logout-prompt false
+#gsettings set org.gnome.SessionManager logout-prompt false
 
 ## Adicionando atalhos de teclado
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
