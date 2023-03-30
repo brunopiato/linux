@@ -47,6 +47,11 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo rm ./google-chrome-stable_current_amd64.deb
 
+## Instalando o Google Drive
+wget https://github.com/alexkim205/G-Desktop-Suite/releases/download/v0.3.1/G-Desktop-Suite-0.3.1.deb -O gdesktopsuite.deb
+sudo dpkg -i gdesktopsuite.deb
+sudo apt install ./gdesktopsuite.deb
+
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extensions
