@@ -4,13 +4,13 @@
 : << 'COMMENT'
 
 Zorin OS 16 (latest version in 24/03/2023)
-Base system	
+Base system
     Ubuntu 20.04 LTS
-Supported until (with software updates and security patches) 
+Supported until (with software updates and security patches)
     April 2025
-Initially released	
+Initially released
     17 August 2021
-Supported app formats	
+Supported app formats
     APT
     Flatpak
     Snap
@@ -18,17 +18,17 @@ Supported app formats
     AppImage
     .exe & .msi
     (with optional Windows App Support)
-Default software repositories	
+Default software repositories
     Zorin OS APT repositories
     Ubuntu packages
     Flathub
     Snap Store
-Desktop environment	
+Desktop environment
     GNOME Shell (Core & Pro editions)
     XFCE (Lite editions)
-Linux kernel version	
+Linux kernel version
     5.15
-Processor architecture support	
+Processor architecture support
     64-bit x86 Intel or AMD CPUs
 
 COMMENT
@@ -40,7 +40,6 @@ COMMENT
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
-
 sudo apt update && sudo apt upgrade
 
 
@@ -49,7 +48,6 @@ sudo apt update && sudo apt upgrade
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
-
 ## Instalando utilitários do Ubuntu
 sudo apt install tree
 sudo apt install neofetch
@@ -67,14 +65,19 @@ flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 
 ## Instalando o Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-sudo apt install ./google-chrome-stable_current_amd64.deb -y
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo rm ./google-chrome-stable_current_amd64.deb
+
+## Instalando o Google Drive
+wget https://github.com/alexkim205/G-Desktop-Suite/releases/download/v0.3.1/G-Desktop-Suite-0.3.1.deb -O gdesktopsuite.deb
+sudo dpkg -i gdesktopsuite.deb
+sudo apt install ./gdesktopsuite.deb
 
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
-sudo apt install gnome-shell-extensions -y
-sudo apt install chrome-gnome-shell -y
+sudo apt install gnome-shell-extensions
+sudo apt install chrome-gnome-shell
 
 ## Instalando o VSCode
 sudo snap install code --classic
@@ -87,11 +90,11 @@ sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap #Notion
 sudo snap install pycharm-community --classic #PyCharm Community
-sudo apt install vlc -y #VLC Media Player
+sudo apt install vlc #VLC Media Player
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-sudo apt install ./dropbox_2020.03.04_amd64.deb -y
+sudo apt install ./dropbox_2020.03.04_amd64.deb
 sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
@@ -101,7 +104,8 @@ sudo apt install yaru-colors-folder-color folder-color  -y #Instalar o colorizad
 nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
-sudo apt-get install calibre -y
+sudo apt-get install calibre
+sudo touch /etc/profile.d/calibre.sh
 sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
@@ -111,33 +115,31 @@ sudo usermod -aG nordvpn $USER
 
 
 
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
-
 sudo apt update
-sudo apt install git -y
-
-
-
+sudo apt install git
 
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
-
 ## Instalando o Python
 #sudo apt install python3.11 -y
 #
 ## Instalando o gerenciador de pacotes do Python
 sudo apt install python3-pip
-sudo pip3 install --upgrade pip
-pip install --upgrade pip
-pip install cython
+python3 -m pip install --upgrade pip
+sudo apt install python3.8-venv
+pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
+pip install cython #Adiciona funcionalidades da linguagem C ao Python
+pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
+pip install pipreqs #Um pacote para criar arquivo requirements.tx
+pip install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
+pip install pipdeptree #Mostra as dependências de cada pacote
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
@@ -151,20 +153,20 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-python3 -m pip install ipykernel
-python3 -m ipykernel install --user
+#python3 -m pipx install ipykernel --include-deps
+#python3 -m ipykernel install --user
 
 ## Instalando o Jupyter Notebook
-pip install notebook
+#pipx install notebook
 
 ## Instalando o Jupyter Notebook e suas extensões
-pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
+#pip install jupyter_contrib_nbextensions
+#jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
-wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
-sudo apt install ./JupyterLab-Setup-Debian.deb
-sudo rm ./JupyterLab-Setup-Debian.deb
+#wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
+#sudo apt install ./JupyterLab-Setup-Debian.deb
+#sudo rm ./JupyterLab-Setup-Debian.deb
 
 
 
@@ -174,7 +176,6 @@ sudo rm ./JupyterLab-Setup-Debian.deb
 #-----------------------------------------------------------------------------------------
 # Instalando o R
 #-----------------------------------------------------------------------------------------
-
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
@@ -197,18 +198,15 @@ sudo rm -r ./rstudio-2023.03.0-386-amd64.deb
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
-
-sudo apt install julia -y 
-
+sudo apt install julia
 
 
 
 #-----------------------------------------------------------------------------------------
 # Demais ajustes e configurações do sistema
 #-----------------------------------------------------------------------------------------
-
 ## Tirando o tempo de espera do botão desligar
-gsettings set org.gnome.SessionManager logout-prompt false
+#gsettings set org.gnome.SessionManager logout-prompt false
 
 ## Adicionando atalhos de teclado
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
@@ -220,12 +218,9 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
 
 
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
-
 mkdir /home/bruno/.local/share/gnome-shell/extensions
 
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/dash-to-plankhardpixel.eu.v15.shell-extension.zip -d \
@@ -240,7 +235,8 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/unitehardpixel.eu.v70.shell-exten
 unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/timepp-master.zip -d \
  ~/.local/share/gnome-shell/extensions/timepp@zagortenay333
 
-
+unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/gnome-clipboardb00f.github.io.v17.shell-extension.zip -d \
+ ~/.local/share/gnome-shell/extensions/gnome-clipboard@b00f.github.io
 
 
 
@@ -249,7 +245,6 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/timepp-master.zip -d \
 #-----------------------------------------------------------------------------------------
 # Mensagem final
 #-----------------------------------------------------------------------------------------
-
 neofetch
 
 sleep 2
@@ -264,7 +259,7 @@ sleep 2
 echo "Reiniciar agora?[S/N]: "
 read resposta
 if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot 
-else sleep 2 
+reboot
+else sleep 2
 echo "Reinicie o computador assim que possível."
 fi
