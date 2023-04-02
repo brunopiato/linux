@@ -21,6 +21,7 @@ $nim\
 $rust\
 $scala\
 [](fg:#86BBD8 bg:#06969A)\
+$python\
 $docker_context\
 [](fg:#06969A bg:#33658A)\
 $time\
@@ -131,8 +132,9 @@ format = '[ $symbol ($version) ]($style)'
 
 [python]
 pyenv_version_name = true
-symbol = ''
+symbol = ' '
 style = "bg:#06969A"
+format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
