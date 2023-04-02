@@ -239,6 +239,18 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/gnome-clipboardb00f.github.io.v17
  ~/.local/share/gnome-shell/extensions/gnome-clipboard@b00f.github.io
 
 
+#-----------------------------------------------------------------------------------------
+# Configurando o prompt
+#-----------------------------------------------------------------------------------------
+echo "A instalação está terminando. Gostaria de aplicar as customizações do prompt de comando?"
+sleep 3
+echo "[S/N]: "
+read resposta
+if [ $resposta == "S" -o $resposta == "s" ] ; then
+bash ~/repos/linux/prompt_config/prompt_config.sh
+else sleep 2
+echo "Fique a vontade para customizar o prompt da forma que preferir."
+fi
 
 
 
