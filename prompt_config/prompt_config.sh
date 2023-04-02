@@ -1,6 +1,6 @@
 #!/bin/bash
 # Iniciar copiando os arquivos .bashrc e o gterminal.dconf
-dconf load /org/gnome/terminal/legacy/profiles:/ < ~/repos/linux/gterminal.dconf
+dconf load /org/gnome/terminal/legacy/profiles:/ < ~/repos/linux/gnome-terminal.properties
 cp ~/repos/linux/prompt_config/.bashrc ~/.bashrc
 
 # Baixar as fontes necessárias
