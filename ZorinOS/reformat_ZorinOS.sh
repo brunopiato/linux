@@ -146,10 +146,14 @@ sudo apt install python3.8-venv
 pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
 pip install cython #Adiciona funcionalidades da linguagem C ao Python
 pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
-pip install pipreqs #Um pacote para criar arquivo requirements.tx
-pip install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
 pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
-pip install pipdeptree #Mostra as dependências de cada pacote
+pipx install pipreqs #Um pacote para criar arquivo requirements.tx
+pipx install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+pipx install pipdeptree #Mostra as dependências de cada pacote
+pipx install poetry #Gerenciador de projetos e ambients virtuais
+poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
+
+
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
