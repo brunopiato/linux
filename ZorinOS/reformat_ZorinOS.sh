@@ -34,16 +34,10 @@ Processor architecture support
 COMMENT
 
 
-
-
-
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
 sudo apt update && sudo apt upgrade
-
-
-
 
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
@@ -114,7 +108,6 @@ sleep 1
 sudo usermod -aG nordvpn $USER
 
 
-
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
@@ -136,24 +129,24 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 #-----------------------------------------------------------------------------------------
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
-## Instalando o Python
-#sudo apt install python3.11 -y
-#
+
 ## Instalando o gerenciador de pacotes do Python
 sudo apt install python3-pip
 python3 -m pip install --upgrade pip
 sudo apt install python3.8-venv
 pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
+
+## Instalando outros pacotes importantes do Python
 pip install cython #Adiciona funcionalidades da linguagem C ao Python
 pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
 pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
 pipx install pipreqs #Um pacote para criar arquivo requirements.tx
 pipx install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
 pipx install pipdeptree #Mostra as dependências de cada pacote
+
+## Instalando o gerenciador de pacotes e ambientes virtuais poetry de forma isolada
 pipx install poetry #Gerenciador de projetos e ambients virtuais
 poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
-
-
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
@@ -167,24 +160,20 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-#python3 -m pipx install ipykernel --include-deps
-#python3 -m ipykernel install --user
+pipx install ipykernel --include-deps
+ipykernel install --user
 
 ## Instalando o Jupyter Notebook
-#pipx install notebook
+pipx install notebook
 
 ## Instalando o Jupyter Notebook e suas extensões
-#pip install jupyter_contrib_nbextensions
-#jupyter contrib nbextension install --user
+pipx install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
-#wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
-#sudo apt install ./JupyterLab-Setup-Debian.deb
-#sudo rm ./JupyterLab-Setup-Debian.deb
-
-
-
-
+wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
+sudo apt install ./JupyterLab-Setup-Debian.deb
+sudo rm ./JupyterLab-Setup-Debian.deb
 
 
 #-----------------------------------------------------------------------------------------
@@ -204,16 +193,10 @@ sudo dpkg -i ./rstudio-2023.03.0-386-amd64.deb
 sudo rm -r ./rstudio-2023.03.0-386-amd64.deb
 
 
-
-
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
 sudo apt install julia
-
 
 
 #-----------------------------------------------------------------------------------------
@@ -228,8 +211,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary>
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
-
-
 
 
 #-----------------------------------------------------------------------------------------
@@ -265,7 +246,6 @@ bash ~/repos/linux/prompt_config/prompt_config.sh
 else sleep 2
 echo "Fique a vontade para customizar o prompt da forma que preferir."
 fi
-
 
 
 #-----------------------------------------------------------------------------------------

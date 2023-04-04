@@ -2,31 +2,35 @@
 
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Este arquivo serve como
-automatizacao do processo
-pos-instalacao e formatacao
-do OS com Ubuntu.
+Pop OS 22.04 LTS (realeased in April 25, 2022)
+    Linux Kernel 5.16
+    Based on Ubuntu 22.04
+    GNOME Shell 42
+    GNOME Settings 41.4
+    GNOME Terminal 3.43.9
+Other features
+    Better Multi-Monitor support
+    Fixed layout on HiDPI displays
+    Improved performance
+    Pop!_OS Upgrade will only activate when you are checking or performing upgrades.
+    When updating Debian packages, you get the ability to resume it if interrupted.
+    Added support for laptop privacy screens.
+    RDP by default for remote desktop use.
+    New default profile icon.
+    Workspace improvements.
+    Icons are now SVG-based instead of PNG-based.
 COMMENT
-
-
-
 
 
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
-
 sudo apt update && sudo apt upgrade
-
-
-
-
 
 
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
-
 ## Instalando utilitários do Ubuntu
 sudo apt install tree
 sudo apt install neofetch
@@ -38,12 +42,12 @@ sudo apt install os-prober
 sudo apt install unzip
 sudo apt install dconf-editor
 
-## Instalando utilitários do Zorin OS
+## Instalando utilitários do plank par asubstituir a doca
 sudo apt install plank
 flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 ## Instalando o Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo rm ./google-chrome-stable_current_amd64.deb
 
@@ -56,10 +60,9 @@ sudo apt install ./gdesktopsuite.deb
 sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extensions
 sudo apt install chrome-gnome-shell
-sudo apt install gnome-shell-extension-manager
 
 ## Instalando o VSCode
-sudo snap install code --classic 
+sudo snap install code --classic
 
 ## Instalando aplicativos do Snap
 sudo snap install drawio #Drawio
@@ -84,6 +87,7 @@ nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre
+sudo touch /etc/profile.d/calibre.sh
 sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
@@ -92,38 +96,44 @@ sleep 1
 sudo usermod -aG nordvpn $USER
 
 
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
-
 sudo apt update
 sudo apt install git
 
 
-
-
+#-----------------------------------------------------------------------------------------
+# Instalando o cliente GitHub
+#-----------------------------------------------------------------------------------------
+type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
-
-## Instalando o Python
-#sudo apt install python3.11
-#
 ## Instalando o gerenciador de pacotes do Python
 sudo apt install python3-pip
-sudo pip3 install --upgrade pip
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
+sudo apt install python3.8-venv
+pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
+
+## Instalando outros pacotes importantes do Python
 pip install cython #Adiciona funcionalidades da linguagem C ao Python
 pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
-pip install pipreqs #Um pacote para criar arquivo requirements.tx
-pip install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
 pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
-pip install pipdeptree #Mostra as dependências de cada pacote
+pipx install pipreqs #Um pacote para criar arquivo requirements.tx
+pipx install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+pipx install pipdeptree #Mostra as dependências de cada pacote
+
+## Instalando o gerenciador de pacotes e ambientes virtuais poetry de forma isolada
+pipx install poetry #Gerenciador de projetos e ambients virtuais
+poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
@@ -137,15 +147,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-#python3 -m pip install ipykernel
-#python3 -m ipykernel install --user
+pipx install ipykernel --include-deps
+ipykernel install --user
 
 ## Instalando o Jupyter Notebook
-#pip install notebook
+pipx install notebook
 
 ## Instalando o Jupyter Notebook e suas extensões
-#pip install jupyter_contrib_nbextensions
-#jupyter contrib nbextension install --user
+pipx install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
 wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
@@ -153,14 +163,9 @@ sudo apt install ./JupyterLab-Setup-Debian.deb
 sudo rm ./JupyterLab-Setup-Debian.deb
 
 
-
-
-
-
 #-----------------------------------------------------------------------------------------
-# Instalando o R 
+# Instalando o R
 #-----------------------------------------------------------------------------------------
-
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
@@ -175,23 +180,15 @@ sudo apt install -f ./rstudio-2022.12.0-353-amd64.deb -y
 sudo rm ./rstudio-2022.12.0-353-amd64.deb
 
 
-
-
-
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
-
 sudo apt install julia --classic #No Ubuntu é necessário adicionar o --classic
-
-
-
 
 
 #-----------------------------------------------------------------------------------------
 # Demais ajustes e configurações do sistema
 #-----------------------------------------------------------------------------------------
-
 ## Tirando o tempo de espera do botão desligar
 #gsettings set org.gnome.SessionManager logout-prompt false
 
@@ -199,16 +196,10 @@ sudo apt install julia --classic #No Ubuntu é necessário adicionar o --classic
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
 
-
-
-
-
-
 #-----------------------------------------------------------------------------------------
 # Arrumando o menu de boot no ****Pop!OS****
 #-----------------------------------------------------------------------------------------
-
-#sudo mount /dev/nvme0n1p1 /mnt 
+#sudo mount /dev/nvme0n1p1 /mnt
 #cd /mnt/EFI
 #
 #sudo cp -ax Microsoft /boot/efi/EFI
@@ -217,26 +208,23 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 #console-mode max" >> /boot/efi/loader/loader.conf
 
 
-
-
-
-
 #-----------------------------------------------------------------------------------------
-# Instalando o grub-customizer no ****Ubuntu****
+# Configurando o prompt
 #-----------------------------------------------------------------------------------------
-#
-#sudo add-apt-repository ppa:danielrichter2007/grub-customizer
-#sudo apt install grub-customizer -y
-
-
-
-
+echo "A instalação está terminando. Gostaria de aplicar as customizações do prompt de comando?"
+sleep 3
+echo "[S/N]: "
+read resposta
+if [ $resposta == "S" -o $resposta == "s" ] ; then
+bash ~/repos/linux/prompt_config/prompt_config.sh
+else sleep 2
+echo "Fique a vontade para customizar o prompt da forma que preferir."
+fi
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando as exntensões GNOME
 #-----------------------------------------------------------------------------------------
-
 sleep 2
 var=$(pwd)
 sleep 1
@@ -259,12 +247,9 @@ bash ./write_ext_list_PopOS.sh
 fi
 
 
-
-
 #-----------------------------------------------------------------------------------------
 # Mensagem final
 #-----------------------------------------------------------------------------------------
-
 neofetch
 
 sleep 2
@@ -279,7 +264,7 @@ sleep 2
 echo "Reiniciar agora?[S/N]: "
 read resposta
 if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot 
-else sleep 2 
+reboot
+else sleep 2
 echo "Reinicie o computador assim que possível."
 fi
