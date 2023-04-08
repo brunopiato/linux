@@ -41,6 +41,7 @@ sudo apt install gparted
 sudo apt install os-prober
 sudo apt install unzip
 sudo apt install dconf-editor
+sudo apt install neovim
 
 ## Instalando utilitários do plank par asubstituir a doca
 sudo apt install plank
@@ -87,11 +88,11 @@ nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre
-sudo touch /etc/profile.d/calibre.sh
-sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
+#sudo touch /etc/profile.d/calibre.sh
+#sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
 ## Instalando o NordVPN
-sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh | sh
 sleep 1
 sudo usermod -aG nordvpn $USER
 
@@ -99,8 +100,8 @@ sudo usermod -aG nordvpn $USER
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
-sudo apt update
-sudo apt install git
+#sudo apt update
+#sudo apt install git
 
 
 #-----------------------------------------------------------------------------------------
@@ -191,6 +192,8 @@ sudo apt install julia --classic #No Ubuntu é necessário adicionar o --classic
 #-----------------------------------------------------------------------------------------
 ## Tirando o tempo de espera do botão desligar
 #gsettings set org.gnome.SessionManager logout-prompt false
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
@@ -211,39 +214,39 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 #-----------------------------------------------------------------------------------------
 # Configurando o prompt
 #-----------------------------------------------------------------------------------------
-echo "A instalação está terminando. Gostaria de aplicar as customizações do prompt de comando?"
-sleep 3
-echo "[S/N]: "
-read resposta
-if [ $resposta == "S" -o $resposta == "s" ] ; then
-bash ~/repos/linux/prompt_config/prompt_config.sh
-else sleep 2
-echo "Fique a vontade para customizar o prompt da forma que preferir."
+echo "A instalação está terminando."
+sleep 1
+read -p "Gostaria de aplicar as customizações do prompt de comando?[S/N]: " resposta
+
+if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]]; then
+	bash ~/repos/linux/prompt_config/prompt_config.sh
+else sleep 1
+	echo "Fique a vontade para customizar o prompt da forma que preferir."
 fi
 
 
 #-----------------------------------------------------------------------------------------
-# Instalando as exntensões GNOME
+# Instalando as extensões GNOME
 #-----------------------------------------------------------------------------------------
 sleep 2
 var=$(pwd)
 sleep 1
 echo "A INSTALAÇÃO ESTÁ TERMINANDO!"
 echo "NÓS ESTAMOS TRABALHANDO NO DIRETÓRIO: $var."
+sleep 1
 echo "VOCÊ GOSTARIA DE INSTALAR AS SEGUINTES EXTENSÕES DO GNOME-SHELL:"
 echo ""
 ls -l $var/extencoes_gnome42
-
 sleep 1
-echo "INSTALAR AGORA?[S/N]: "
-read resposta
-if [ $resposta == "S" -o $resposta == "s" ] ; then
-bash ./install_extensions_PopOS.sh
-echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
-echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
+read -p "INSTALAR AGORA?[S/N]: " resposta
+
+if [ $resposta = "S" -o $resposta = "s" ] ; then
+	bash ./install_extensions_PopOS.sh
+	echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
+	echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
 else sleep 1
-echo "OK. VOCÊ PODE INSTALá-LAS MAIS TARDE A PARTIR DA LISTA DE EXTENSÕES CRIADA NA SUA PASTA PESSOAL (home)."
-bash ./write_ext_list_PopOS.sh
+	echo "OK. VOCÊ PODE INSTALÁ-LAS MAIS TARDE A PARTIR DA LISTA DE EXTENSÕES CRIADA NA SUA PASTA PESSOAL (/home/usuario)."
+	#bash ./write_ext_list_PopOS.sh
 fi
 
 
@@ -251,20 +254,17 @@ fi
 # Mensagem final
 #-----------------------------------------------------------------------------------------
 neofetch
-
 sleep 2
 echo "A LISTA COM AS EXTENSÕES DO GNOME-SHELL RECOMENDADAS PARA SEREM INSTALADAS ESTÃO SALVAS EM ~/lista_ext.txt.
 VÁ ATÉ LÁ VERIFICÁ-LAS."
 echo ""
-
-sleep 2
+sleep 1
 echo "A instalação terminou, mas precisamos reiniciar o computador."
+sleep 1
+read -p "Reiniciar agora?[S/N]: " resposta
 
-sleep 2
-echo "Reiniciar agora?[S/N]: "
-read resposta
-if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot
+if [ $resposta = "S" -o $resposta = "s" ] ; then
+	reboot
 else sleep 2
-echo "Reinicie o computador assim que possível."
+	echo "Reinicie o computador assim que possível."
 fi
