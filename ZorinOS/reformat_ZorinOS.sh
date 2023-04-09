@@ -130,11 +130,25 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
 
-## Instalando o gerenciador de pacotes do Python
-sudo apt install python3-pip
-python3 -m pip install --upgrade pip
-sudo apt install python3.8-venv
-pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
+## Instalando o pyenv
+sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
+curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
+
+sudo echo 'export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
+
+export PATH="~/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+## Criando a primeira virtualenv e ativando-a para o ambiente global
+pyenv install 3.11
+pyenv globall 3.11
+
+## Instalando e atualizando o gerenciador de pacotes do Python
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+pip install --upgrade pip
 
 ## Instalando outros pacotes importantes do Python
 pip install cython #Adiciona funcionalidades da linguagem C ao Python
@@ -148,25 +162,12 @@ pipx install pipdeptree #Mostra as dependências de cada pacote
 pipx install poetry #Gerenciador de projetos e ambients virtuais
 poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
 
-## Instalando o pyenv
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
-curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-
-sudo echo 'export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
-
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
 ## Instalando kernel iPython
 pipx install ipykernel --include-deps
-ipykernel install --user
-
-## Instalando o Jupyter Notebook
-pipx install notebook
+#ipykernel install --user
 
 ## Instalando o Jupyter Notebook e suas extensões
+pipx install notebook
 pipx install jupyter_contrib_nbextensions
 jupyter contrib nbextension install --user
 
@@ -237,14 +238,13 @@ unzip ~/repos/linux/ZorinOS/extensions_ZorinOS/gnome-clipboardb00f.github.io.v17
 #-----------------------------------------------------------------------------------------
 # Configurando o prompt
 #-----------------------------------------------------------------------------------------
-echo "A instalação está terminando. Gostaria de aplicar as customizações do prompt de comando?"
-sleep 3
-echo "[S/N]: "
-read resposta
-if [ $resposta == "S" -o $resposta == "s" ] ; then
-bash ~/repos/linux/prompt_config/prompt_config.sh
-else sleep 2
-echo "Fique a vontade para customizar o prompt da forma que preferir."
+echo "A instalação está terminando."
+sleep 1
+read -p "Gostaria de aplicar as customizações do prompt de comando? [S/N]: " resposta
+if [ $resposta = "S" -o $resposta = "s" ] ; then
+    bash ~/repos/linux/prompt_config/prompt_config.sh
+else sleep 1
+    echo "Fique a vontade para customizar o prompt da forma que preferir."
 fi
 
 
@@ -252,20 +252,16 @@ fi
 # Mensagem final
 #-----------------------------------------------------------------------------------------
 neofetch
-
 sleep 2
 echo "A LISTA COM AS EXTENSÕES DO GNOME-SHELL RECOMENDADAS PARA SEREM INSTALADAS ESTÃO SALVAS EM ~/lista_ext.txt.
 VÁ ATÉ LÁ VERIFICÁ-LAS."
 echo ""
-
-sleep 2
+sleep 1
 echo "A instalação terminou, mas precisamos reiniciar o computador para que as alterações tenham efeito."
-
-sleep 2
-echo "Reiniciar agora?[S/N]: "
-read resposta
-if [ $resposta == "S" -o $resposta == "s" ] ; then
-reboot
-else sleep 2
-echo "Reinicie o computador assim que possível."
+sleep 1
+read -p "Reiniciar agora?[S/N]: " resposta
+if [ $resposta = "S" -o $resposta = "s" ] ; then
+    reboot
+else sleep 1
+    echo "Reinicie o computador assim que possível."
 fi
