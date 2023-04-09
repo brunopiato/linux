@@ -33,22 +33,22 @@ sudo apt update && sudo apt upgrade
 #-----------------------------------------------------------------------------------------
 ## Instalando utilitários do Ubuntu
 sudo apt install tree
-sudo apt install neofetch
+sudo apt install neofetch -y
 sudo apt install curl
-sudo apt install snapd
+sudo apt install snapd -y
 sudo snap install snap-store
-sudo apt install gparted
-sudo apt install os-prober
+sudo apt install gparted -y
+sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
-sudo apt install neovim
+sudo apt install neovim -y
 
 ## Instalando utilitários do plank par asubstituir a doca
-sudo apt install plank
-flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
+#sudo apt install plank
+#flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 ## Instalando o Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -y
 sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo rm ./google-chrome-stable_current_amd64.deb
 
@@ -59,7 +59,7 @@ sudo apt install ./gdesktopsuite.deb
 
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
-sudo apt install gnome-shell-extensions
+sudo apt install gnome-shell-extensions -y
 sudo apt install chrome-gnome-shell
 
 ## Instalando o VSCode
@@ -73,7 +73,7 @@ sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap #Notion
 sudo snap install pycharm-community --classic #PyCharm Community
-sudo apt install vlc #VLC Media Player
+sudo apt install vlc -y #VLC Media Player
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
@@ -87,7 +87,7 @@ sudo apt install yaru-colors-folder-color folder-color #Instalar o colorizador
 nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
-sudo apt-get install calibre
+sudo apt-get install calibre -y
 #sudo touch /etc/profile.d/calibre.sh
 #sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
@@ -119,9 +119,9 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
 ## Instalando o gerenciador de pacotes do Python
-sudo apt install python3-pip
+sudo apt install python3-pip -y
 python3 -m pip install --upgrade pip
-sudo apt install python3.8-venv
+#sudo apt install python3.8-venv
 pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
 
 ## Instalando outros pacotes importantes do Python
@@ -167,8 +167,8 @@ sudo rm ./JupyterLab-Setup-Debian.deb
 #-----------------------------------------------------------------------------------------
 # Instalando o R
 #-----------------------------------------------------------------------------------------
-sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 -y
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
 echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
 sudo apt update
