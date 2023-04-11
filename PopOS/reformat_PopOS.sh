@@ -37,25 +37,26 @@ sudo apt install neofetch -y
 sudo apt install curl
 sudo apt install snapd -y
 sudo snap install snap-store
-sudo apt install gparted -y
+sudo apt install gparted
 sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
 sudo apt install neovim -y
 
 ## Instalando utilitários do plank par asubstituir a doca
-#sudo apt install plank
-#flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
+sudo apt install plank -y
+flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
 ## Instalando o Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -y
-sudo apt install ./google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb -y
 sudo rm ./google-chrome-stable_current_amd64.deb
 
 ## Instalando o Google Drive
 wget https://github.com/alexkim205/G-Desktop-Suite/releases/download/v0.3.1/G-Desktop-Suite-0.3.1.deb -O gdesktopsuite.deb
 sudo dpkg -i gdesktopsuite.deb
 sudo apt install ./gdesktopsuite.deb
+sudo rm ./gdesktopsuite.deb
 
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
@@ -77,13 +78,13 @@ sudo apt install vlc -y #VLC Media Player
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-sudo apt install ./dropbox_2020.03.04_amd64.deb
+sudo apt install ./dropbox_2020.03.04_amd64.deb -y
 sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
 sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
 sudo apt update #Atualizar o sistema
-sudo apt install yaru-colors-folder-color folder-color #Instalar o colorizador
+sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizador
 nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
@@ -168,7 +169,7 @@ sudo rm ./JupyterLab-Setup-Debian.deb
 # Instalando o R
 #-----------------------------------------------------------------------------------------
 sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 -y
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
 echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
 sudo apt update
@@ -184,7 +185,7 @@ sudo rm ./rstudio-2022.12.0-353-amd64.deb
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
-sudo apt install julia --classic #No Ubuntu é necessário adicionar o --classic
+sudo apt install julia #No Ubuntu é necessário adicionar o --classic
 
 
 #-----------------------------------------------------------------------------------------
@@ -218,7 +219,7 @@ echo "A instalação está terminando."
 sleep 1
 read -p "Gostaria de aplicar as customizações do prompt de comando?[S/N]: " resposta
 
-if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]]; then
+if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	bash ~/repos/linux/prompt_config/prompt_config.sh
 else sleep 1
 	echo "Fique a vontade para customizar o prompt da forma que preferir."
