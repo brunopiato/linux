@@ -1,0 +1,9 @@
+[PopLaunch1]
+binding='Launch1'
+command='gnome-control-center wifi'
+name='WiFi'
+
+[custom0]
+binding='<Super>c'
+command='code'
+name='VSCode'
