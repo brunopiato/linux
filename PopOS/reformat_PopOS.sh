@@ -149,15 +149,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 ## Instalando kernel iPython
-pipx install ipykernel --include-deps
-ipykernel install --user
-
-## Instalando o Jupyter Notebook
-pipx install notebook
-
-## Instalando o Jupyter Notebook e suas extensões
-pipx install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
+#pipx install ipykernel --include-deps
+#ipykernel install --user
+#
+### Instalando o Jupyter Notebook
+#pipx install notebook
+#
+### Instalando o Jupyter Notebook e suas extensões
+#pipx install jupyter_contrib_nbextensions
+#jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
 wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
