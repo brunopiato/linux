@@ -43,7 +43,7 @@ sudo apt install unzip
 sudo apt install dconf-editor
 sudo apt install neovim -y
 
-## Instalando utilitários do plank par asubstituir a doca
+## Instalando utilitários do plank para substituir a doca
 sudo apt install plank -y
 flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
 
@@ -69,11 +69,11 @@ sudo snap install code --classic
 ## Instalando aplicativos do Snap
 sudo snap install drawio #Drawio
 sudo snap install spotify #Spotify
-sudo snap install dbeaver-ce #DBeaver
+#sudo snap install dbeaver-ce #DBeaver
 sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap #Notion
-sudo snap install pycharm-community --classic #PyCharm Community
+#sudo snap install pycharm-community --classic #PyCharm Community
 sudo apt install vlc -y #VLC Media Player
 
 ## Instalando Dropbox
@@ -126,23 +126,23 @@ python3 -m pip install --upgrade pip
 pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
 
 ## Instalando outros pacotes importantes do Python
-pip install cython #Adiciona funcionalidades da linguagem C ao Python
-pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
-pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
-pipx install pipreqs #Um pacote para criar arquivo requirements.tx
-pipx install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
-pipx install pipdeptree #Mostra as dependências de cada pacote
+#pip install cython #Adiciona funcionalidades da linguagem C ao Python
+#pip install pip-autoremove #Um pacote para desinstalar outros pacotes junto com suas dependências
+#pip install pip-chill #Um pacote que mostra os pacotes que estão em uso
+#pipx install pipreqs #Um pacote para criar arquivo requirements.tx
+#pipx install pipreqsnb #Um pacote para criar arquivo requirements.tx para Jupyter Notebook
+#pipx install pipdeptree #Mostra as dependências de cada pacote
 
 ## Instalando o gerenciador de pacotes e ambientes virtuais poetry de forma isolada
-pipx install poetry #Gerenciador de projetos e ambients virtuais
-poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
+#pipx install poetry #Gerenciador de projetos e ambients virtuais
+#poetry completions bash >> ~/.bash_completion #Adiona a autocompleção com tab ao terminal
 
 ## Instalando o pyenv
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm gettext libncurses5-dev tk-dev tcl-dev blt-dev libgdbm-dev git python2-dev python3-dev aria2
 curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
 
-sudo echo 'export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
-
+sudo echo '# Comandos do pyenv
+export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -160,9 +160,9 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #jupyter contrib nbextension install --user
 
 ## Instalando o JupyterLab Desktop
-wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
-sudo apt install ./JupyterLab-Setup-Debian.deb
-sudo rm ./JupyterLab-Setup-Debian.deb
+#wget https://github.com/jupyterlab/jupyterlab-desktop/releases/latest/download/JupyterLab-Setup-Debian.deb
+#sudo apt install ./JupyterLab-Setup-Debian.deb
+#sudo rm ./JupyterLab-Setup-Debian.deb
 
 
 #-----------------------------------------------------------------------------------------
@@ -177,15 +177,15 @@ sudo apt install r-base -y
 R --version
 
 ## Instalando o RStudio
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2022.12.0-353-amd64.deb
-sudo apt install -f ./rstudio-2022.12.0-353-amd64.deb -y
-sudo rm ./rstudio-2022.12.0-353-amd64.deb
+wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.6.0-421-amd64.deb
+sudo apt install -f ./rstudio-2023.6.0-421-amd64.deb -y
+sudo rm ./rstudio-2023.6.0-421-amd64.deb
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando Julia
 #-----------------------------------------------------------------------------------------
-sudo apt install julia #No Ubuntu é necessário adicionar o --classic
+#sudo apt install julia #No Ubuntu é necessário adicionar o --classic
 
 
 #-----------------------------------------------------------------------------------------
@@ -217,16 +217,16 @@ echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
 
 #-----------------------------------------------------------------------------------------
-# Configurando o prompt
+# Configurando o terminal
 #-----------------------------------------------------------------------------------------
 echo "A instalação está terminando."
 sleep 1
-read -p "Gostaria de aplicar as customizações do prompt de comando?[S/N]: " resposta
+read -p "Gostaria de aplicar as customizações do terminal?[S/N]: " resposta
 
 if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	bash ~/repos/linux/prompt_config/prompt_config.sh
 else sleep 1
-	echo "Fique a vontade para customizar o prompt da forma que preferir."
+	echo "Fique a vontade para customizar o terminal da forma que preferir."
 fi
 
 
