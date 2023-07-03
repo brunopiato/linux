@@ -245,7 +245,7 @@ ls -l $var/extencoes_gnome42
 sleep 1
 read -p "INSTALAR AGORA?[S/N]: " resposta
 
-if [ $resposta = "S" -o $resposta = "s" ] ; then
+if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	bash ./install_extensions_PopOS.sh
 	echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
 	echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
@@ -268,7 +268,7 @@ echo "A instalação terminou, mas precisamos reiniciar o computador."
 sleep 1
 read -p "Reiniciar agora?[S/N]: " resposta
 
-if [ $resposta = "S" -o $resposta = "s" ] ; then
+if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	reboot
 else sleep 2
 	echo "Reinicie o computador assim que possível."
