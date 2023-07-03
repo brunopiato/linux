@@ -180,9 +180,9 @@ sudo apt install r-base -y
 R --version
 
 ## Instalando o RStudio
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.6.0-421-amd64.deb
-sudo apt install -f ./rstudio-2023.6.0-421-amd64.deb -y
-sudo rm ./rstudio-2023.6.0-421-amd64.deb
+wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.06.0-421-amd64.deb
+sudo apt install -f ./rstudio-2023.06.0-421-amd64.deb -y
+sudo rm ./rstudio-2023.06.0-421-amd64.deb
 
 
 #-----------------------------------------------------------------------------------------
