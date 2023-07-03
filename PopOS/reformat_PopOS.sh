@@ -42,6 +42,8 @@ sudo apt install os-prober -y
 sudo apt install unzip
 sudo apt install dconf-editor
 sudo apt install neovim -y
+sudo apt install gimp -y
+sudo apt install obs-studio -y
 
 ## Instalando utilitários do plank para substituir a doca
 sudo apt install plank -y
@@ -72,9 +74,10 @@ sudo snap install spotify #Spotify
 #sudo snap install dbeaver-ce #DBeaver
 sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
-sudo snap install notion-snap #Notion
+sudo snap install notion-snap-reborn #Notion
 #sudo snap install pycharm-community --classic #PyCharm Community
 sudo apt install vlc -y #VLC Media Player
+sudo snap install emote
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
