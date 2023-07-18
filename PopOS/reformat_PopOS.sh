@@ -37,7 +37,7 @@ sudo apt install neofetch -y
 sudo apt install curl
 sudo apt install snapd -y
 sudo snap install snap-store
-sudo apt install gparted
+sudo apt install gparted -y
 sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
@@ -53,7 +53,7 @@ sudo rm ./iriunwebcam-2.8.deb
 
 ## Instalando utilitários do plank para substituir a doca
 sudo apt install plank -y
-flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor
+flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor -y
 
 ## Instalando o Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
