@@ -209,11 +209,11 @@ sudo rm ./rstudio-2023.06.0-421-amd64.deb
 #gsettings set org.gnome.SessionManager logout-prompt false
 
 ## Configurações de teclado
-gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
-gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
+# gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
+# gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
 
-dconf load '/org/gnome/desktop/wm/keybindings/' < ./configs/keybindings.dconf
-dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./configs/custom-keybindings.dconf
+dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf
+dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./PopOS/configs/custom-keybindings.dconf
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
