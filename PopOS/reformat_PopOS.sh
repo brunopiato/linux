@@ -44,6 +44,12 @@ sudo apt install dconf-editor
 sudo apt install neovim -y
 sudo apt install gimp -y
 sudo apt install obs-studio -y
+sudo apt install onlyoffice-desktopeditors -y
+
+## Instalando IriunWebcam
+wget https://iriun.gitlab.io/iriunwebcam-2.8.deb
+sudo apto install ./iriunwebcam-2.8.deb
+sudo rm ./iriunwebcam-2.8.deb
 
 ## Instalando utilitários do plank para substituir a doca
 sudo apt install plank -y
@@ -69,15 +75,16 @@ sudo apt install chrome-gnome-shell
 sudo snap install code --classic
 
 ## Instalando aplicativos do Snap
+#sudo snap install pycharm-community --classic #PyCharm Community
+#sudo snap install dbeaver-ce #DBeaver
 sudo snap install drawio #Drawio
 sudo snap install spotify #Spotify
-#sudo snap install dbeaver-ce #DBeaver
 sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap-reborn #Notion
-#sudo snap install pycharm-community --classic #PyCharm Community
 sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
+sudo snap install obsidian
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
@@ -95,11 +102,16 @@ sudo apt-get install calibre -y
 #sudo touch /etc/profile.d/calibre.sh
 #sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
-## Instalando o NordVPN
-curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh | sh
+## Instalando o NordVPN & NordPass
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
 sleep 1
 sudo usermod -aG nordvpn $USER
+sudo snap install nordpass
 
+## Instalando o Deskreen
+wget https://github.com/pavlobu/deskreen/releases/download/v2.0.4/deskreen_2.0.4_amd64.deb
+sudo apt install ./deskreen_2.0.4_amd64.deb
+sudo rm ./deskreen_2.0.4_amd64.deb
 
 #-----------------------------------------------------------------------------------------
 # Instalando Git
