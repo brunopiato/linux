@@ -44,7 +44,8 @@ sudo apt install dconf-editor
 sudo apt install neovim -y
 sudo apt install gimp -y
 sudo apt install obs-studio -y
-sudo apt install onlyoffice-desktopeditors -y
+sudo apt install speedtest-cli
+
 
 ## Instalando IriunWebcam
 wget https://iriun.gitlab.io/iriunwebcam-2.8.deb
@@ -84,7 +85,8 @@ sudo snap install inkscape #Inkscape
 sudo snap install notion-snap-reborn #Notion
 sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
-sudo apt install obsidian
+sudo snap install obsidian
+sudo snap install onlyoffice-desktopeditors -y
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
