@@ -45,6 +45,7 @@ sudo apt install neovim -y
 sudo apt install gimp -y
 sudo apt install obs-studio -y
 sudo apt install speedtest-cli
+sudo apt install shotwell -y
 
 
 ## Instalando IriunWebcam
