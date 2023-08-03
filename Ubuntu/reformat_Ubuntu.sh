@@ -31,10 +31,10 @@ sudo apt install curl
 sudo apt install unzip
 sudo apt install dconf-editor
 #sudo apt install neovim -y
-#sudo apt install gimp -y
-#sudo apt install obs-studio -y
-#sudo apt install speedtest-cli
-#sudo apt install shotwell -y
+sudo apt install gimp -y
+sudo apt install obs-studio -y
+sudo apt install speedtest-cli
+sudo apt install shotwell -y
 
 
 ## Instalando IriunWebcam
@@ -63,19 +63,19 @@ sudo apt install gnome-shell-extensions -y
 sudo apt install chrome-gnome-shell
 
 ## Instalando o VSCode
-#sudo snap install code --classic
+sudo snap install code --classic
 
 ## Instalando aplicativos do Snap
 #sudo snap install pycharm-community --classic #PyCharm Community
 #sudo snap install dbeaver-ce #DBeaver
 #sudo snap install drawio #Drawio
 #sudo snap install spotify #Spotify
-#sudo snap install discord #Discord
-#sudo snap install inkscape #Inkscape
-#sudo snap install notion-snap-reborn #Notion
+sudo snap install discord #Discord
+sudo snap install inkscape #Inkscape
+sudo snap install notion-snap-reborn #Notion
 sudo apt install vlc -y #VLC Media Player
 #sudo snap install emote
-#sudo snap install obsidian
+sudo snap install obsidian
 sudo snap install onlyoffice-desktopeditors -y
 
 ## Instalando Dropbox
@@ -90,7 +90,7 @@ sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizado
 nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
-#sudo apt-get install calibre -y
+sudo apt-get install calibre -y
 #sudo touch /etc/profile.d/calibre.sh
 #sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
@@ -175,18 +175,18 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #-----------------------------------------------------------------------------------------
 # Instalando o R
 #-----------------------------------------------------------------------------------------
-#sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
-#echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
-#sudo apt update
-#sudo apt install r-base -y
-#R --version
+sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
+echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
+sudo apt update
+sudo apt install r-base -y
+R --version
 
 ## Instalando o RStudio
-#wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.06.0-421-amd64.deb
-#sudo apt install -f ./rstudio-2023.06.0-421-amd64.deb -y
-#sudo rm ./rstudio-2023.06.0-421-amd64.deb
+wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.06.0-421-amd64.deb
+sudo apt install -f ./rstudio-2023.06.0-421-amd64.deb -y
+sudo rm ./rstudio-2023.06.0-421-amd64.deb
 
 
 #-----------------------------------------------------------------------------------------
@@ -201,14 +201,17 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #gsettings set org.gnome.SessionManager logout-prompt false
 
 ## Configurações de teclado
-gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
+gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Super>Page_Down']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Super>Page_Up']" 
+gsettings set org.gnome.desktop.wm.keybindings maximize ['<Super>up']
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10', '<Super>m']
 
 
-#dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf
-#dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./PopOS/configs/custom-keybindings.dconf
+dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf
+dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./PopOS/configs/custom-keybindings.dconf
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
