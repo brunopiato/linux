@@ -210,6 +210,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Supe
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Super>Page_Up']" 
 gsettings set org.gnome.desktop.wm.keybindings maximize ['<Super>up']
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10', '<Super>m']
+gsettings set org.gnome.desktop.wm.keybindings minimize ['<Super>h']
 # VSCode
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
