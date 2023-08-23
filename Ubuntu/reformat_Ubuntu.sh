@@ -26,8 +26,8 @@ sudo apt install neofetch -y
 sudo apt install curl
 #sudo apt install snapd -y
 #sudo snap install snap-store
-#sudo apt install gparted -y
-#sudo apt install os-prober -y 
+sudo apt install gparted -y
+sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
 #sudo apt install neovim -y
@@ -78,16 +78,16 @@ sudo apt install vlc -y #VLC Media Player
 sudo snap install obsidian
 sudo snap install onlyoffice-desktopeditors -y
 
-## Instalando Dropbox
-#curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-#sudo apt install ./dropbox_2020.03.04_amd64.deb -y
-#sudo rm ./dropbox_2020.03.04_amd64.deb
+# Instalando Dropbox
+curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
+sudo apt install ./dropbox_2020.03.04_amd64.deb -y
+sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
-sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
-sudo apt update #Atualizar o sistema
-sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizador
-nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
+# sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
+# sudo apt update #Atualizar o sistema
+# sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizador
+# nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre -y
@@ -115,12 +115,13 @@ sudo apt-get install calibre -y
 #-----------------------------------------------------------------------------------------
 # Instalando o cliente GitHub
 #-----------------------------------------------------------------------------------------
-type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
+# type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+# curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+# && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+# && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+# && sudo apt update \
+# && sudo apt install gh -y
+sudo snap install gh
 
 
 #-----------------------------------------------------------------------------------------
@@ -203,11 +204,20 @@ sudo rm ./rstudio-2023.06.0-421-amd64.deb
 ## Configurações de teclado
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Super>Page_Down']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Super>Page_Up']" 
 gsettings set org.gnome.desktop.wm.keybindings maximize ['<Super>up']
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10', '<Super>m']
+# VSCode
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "VSCode" 
+# Notion
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>n"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "notion-snap-reborn"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Notion"
 
 
 dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf

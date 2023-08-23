@@ -2,7 +2,7 @@
 
 echo "VOCÊ GOSTARIA DE COPIAR OS ATALHOS OU REDEFINIR OS ATALHOS?"
 read -p "[C]Copiar as configuraçoes do PC para o arquivo
-[R]Redefinir as configuraçoes do PC a partir de um arquivo
+[R]Aplicar as configuraçoes no PC a partir de um arquivo
 " resposta
 
 if [ "$resposta" == "C" ]; then 
