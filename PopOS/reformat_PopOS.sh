@@ -88,8 +88,8 @@ sudo snap install inkscape #Inkscape
 sudo snap install notion-snap-reborn #Notion
 sudo snap install emote
 sudo snap install obsidian
-sudo snap install onlyoffice-desktopeditors -y
-sudo snap install slack -y
+sudo snap install onlyoffice-desktopeditors
+sudo snap install slack
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
