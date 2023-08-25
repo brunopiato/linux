@@ -37,25 +37,27 @@ sudo apt install neofetch -y
 sudo apt install curl
 sudo apt install snapd -y
 sudo snap install snap-store
+sudo snap install core
 sudo apt install gparted -y
 sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
-sudo apt install neovim -y
 sudo apt install gimp -y
 sudo apt install obs-studio -y
 sudo apt install speedtest-cli
 sudo apt install shotwell -y
+sudo apt install vlc -y #VLC Media Player
+# sudo apt install neovim -y
 
 
 ## Instalando IriunWebcam
-wget https://iriun.gitlab.io/iriunwebcam-2.8.deb
-sudo apt install ./iriunwebcam-2.8.deb -y
-sudo rm ./iriunwebcam-2.8.deb
+# wget https://iriun.gitlab.io/iriunwebcam-2.8.deb
+# sudo apt install ./iriunwebcam-2.8.deb -y
+# sudo rm ./iriunwebcam-2.8.deb
 
 ## Instalando utilitários do plank para substituir a doca
-sudo apt install plank -y
-flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor -y
+# sudo apt install plank -y
+# flatpak install flathub com.github.maoschanz.DynamicWallpaperEditor -y
 
 ## Instalando o Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -63,10 +65,10 @@ sudo apt install ./google-chrome-stable_current_amd64.deb -y
 sudo rm ./google-chrome-stable_current_amd64.deb
 
 ## Instalando o Google Drive
-wget https://github.com/alexkim205/G-Desktop-Suite/releases/download/v0.3.1/G-Desktop-Suite-0.3.1.deb -O gdesktopsuite.deb
-sudo dpkg -i gdesktopsuite.deb
-sudo apt install ./gdesktopsuite.deb
-sudo rm ./gdesktopsuite.deb
+# wget https://github.com/alexkim205/G-Desktop-Suite/releases/download/v0.3.1/G-Desktop-Suite-0.3.1.deb -O gdesktopsuite.deb
+# sudo dpkg -i gdesktopsuite.deb
+# sudo apt install ./gdesktopsuite.deb
+# sudo rm ./gdesktopsuite.deb
 
 ## Instalando as extensões do GNOME
 sudo apt install gnome-tweaks
@@ -79,15 +81,15 @@ sudo snap install code --classic
 ## Instalando aplicativos do Snap
 #sudo snap install pycharm-community --classic #PyCharm Community
 #sudo snap install dbeaver-ce #DBeaver
-sudo snap install drawio #Drawio
+# sudo snap install drawio #Drawio
 sudo snap install spotify #Spotify
 sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
 sudo snap install notion-snap-reborn #Notion
-sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
 sudo snap install obsidian
 sudo snap install onlyoffice-desktopeditors -y
+sudo snap install slack -y
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
@@ -112,9 +114,9 @@ sudo usermod -aG nordvpn $USER
 sudo snap install nordpass
 
 ## Instalando o Deskreen
-wget https://github.com/pavlobu/deskreen/releases/download/v2.0.4/deskreen_2.0.4_amd64.deb
-sudo apt install ./deskreen_2.0.4_amd64.deb
-sudo rm ./deskreen_2.0.4_amd64.deb
+# wget https://github.com/pavlobu/deskreen/releases/download/v2.0.4/deskreen_2.0.4_amd64.deb
+# sudo apt install ./deskreen_2.0.4_amd64.deb
+# sudo rm ./deskreen_2.0.4_amd64.deb
 
 #-----------------------------------------------------------------------------------------
 # Instalando Git
@@ -220,14 +222,16 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
 gsettings set org.gnome.desktop.wm.keybindings close "['<Alt>F4', '<Super>q']" #Adicionar o Super+Q para fechar a janela
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Super>Page_Down']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Super>Page_Up']" 
-gsettings set org.gnome.desktop.wm.keybindings maximize ['<Super>up']
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10', '<Super>m']
-gsettings set org.gnome.desktop.wm.keybindings minimize ['<Super>h']
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>up']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>F10', '<Super>m']"
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>h']"
+
 # VSCode
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "VSCode" 
 # Notion
+
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>n"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "notion-snap-reborn"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Notion"
