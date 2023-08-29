@@ -43,7 +43,6 @@ sudo apt install os-prober -y
 sudo apt install unzip
 sudo apt install dconf-editor
 sudo apt install gimp -y
-sudo apt install obs-studio -y
 sudo apt install speedtest-cli
 sudo apt install shotwell -y
 sudo apt install vlc -y #VLC Media Player
@@ -90,6 +89,7 @@ sudo snap install emote
 sudo snap install obsidian
 sudo snap install onlyoffice-desktopeditors
 sudo snap install slack
+sudo snap install darktable
 
 ## Instalando Dropbox
 curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
@@ -118,12 +118,19 @@ sudo snap install nordpass
 # sudo apt install ./deskreen_2.0.4_amd64.deb
 # sudo rm ./deskreen_2.0.4_amd64.deb
 
+# Instalando o OBS Studio via Flatpack
+#sudo apt install flatpak -y
+#flatpak install --user https://flathub.org/repo/appstream/com.obsproject.Studio.flatpakref
+#flatpak --user update com.obsproject.Studio
+
 #-----------------------------------------------------------------------------------------
 # Instalando Git
 #-----------------------------------------------------------------------------------------
 #sudo apt update
 #sudo apt install git
 
+git config --global user.name brunopiato
+git config --global user.email piatobio@gmail.com
 
 #-----------------------------------------------------------------------------------------
 # Instalando o cliente GitHub
@@ -242,6 +249,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
 
+
+
+
+sudo apt autoremove
 
 #-----------------------------------------------------------------------------------------
 # Arrumando o menu de boot no ****Pop!OS****
