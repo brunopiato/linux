@@ -97,10 +97,10 @@ sudo apt install ./dropbox_2020.03.04_amd64.deb -y
 sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
-sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
-sudo apt update #Atualizar o sistema
-sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizador
-nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
+#sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
+#sudo apt update #Atualizar o sistema
+#sudo apt install yaru-colors-folder-color folder-color -y #Instalar o colorizador
+#nautilus -q  #Reiniciar o Nautilus para que as modificações tenham efeito
 
 ## Instalando e configurando o Calibre
 sudo apt-get install calibre -y
@@ -128,7 +128,6 @@ sudo snap install nordpass
 #-----------------------------------------------------------------------------------------
 #sudo apt update
 #sudo apt install git
-
 git config --global user.name brunopiato
 git config --global user.email piatobio@gmail.com
 
@@ -233,25 +232,11 @@ gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>up']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>F10', '<Super>m']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>h']"
 
-# VSCode
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "VSCode" 
-# Notion
-
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>n"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "notion-snap-reborn"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Notion"
-
 #dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf
 #dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./PopOS/configs/custom-keybindings.dconf
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
-
-
-
-
 sudo apt autoremove
 
 #-----------------------------------------------------------------------------------------
@@ -279,30 +264,29 @@ else sleep 1
 	echo "Fique a vontade para customizar o terminal da forma que preferir."
 fi
 
-
 #-----------------------------------------------------------------------------------------
 # Instalando as extensões GNOME
 #-----------------------------------------------------------------------------------------
-sleep 2
-var=$(pwd)
-sleep 1
-echo "A INSTALAÇÃO ESTÁ TERMINANDO!"
-echo "NÓS ESTAMOS TRABALHANDO NO DIRETÓRIO: $var."
-sleep 1
-echo "VOCÊ GOSTARIA DE INSTALAR AS SEGUINTES EXTENSÕES DO GNOME-SHELL:"
-echo ""
-ls -l $var/extencoes_gnome42
-sleep 1
-read -p "INSTALAR AGORA?[S/N]: " resposta
+#sleep 2
+#var=$(pwd)
+#sleep 1
+#echo "A INSTALAÇÃO ESTÁ TERMINANDO!"
+#echo "NÓS ESTAMOS TRABALHANDO NO DIRETÓRIO: $var."
+#sleep 1
+#echo "VOCÊ GOSTARIA DE INSTALAR AS SEGUINTES EXTENSÕES DO GNOME-SHELL:"
+#echo ""
+#ls -l $var/extencoes_gnome42
+#sleep 1
+#read -p "INSTALAR AGORA?[S/N]: " resposta
 
-if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
-	bash ./install_extensions_PopOS.sh
-	echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
-	echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
-else sleep 1
-	echo "OK. VOCÊ PODE INSTALÁ-LAS MAIS TARDE A PARTIR DA LISTA DE EXTENSÕES CRIADA NA SUA PASTA PESSOAL (/home/usuario)."
+#if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
+#	bash ./install_extensions_PopOS.sh
+#	echo "PRONTO!! AS EXTENSÕES FORAM DESCOMPACTADAS E PODERÃO SER ATIVADAS APÓS A REINICIALIZAÇÃO DO SISTEMA."
+#	echo "O COMANDO PARA A ATIVAÇÃO É 'gnome-extensions enable UUID', em que o UUID É O IDENTIFICADOR UNIVERSAL ÚNICO DA EXTENÇÃO."
+#else sleep 1
+#	echo "OK. VOCÊ PODE INSTALÁ-LAS MAIS TARDE A PARTIR DA LISTA DE EXTENSÕES CRIADA NA SUA PASTA PESSOAL (/home/usuario)."
 	#bash ./write_ext_list_PopOS.sh
-fi
+#fi
 
 
 #-----------------------------------------------------------------------------------------
