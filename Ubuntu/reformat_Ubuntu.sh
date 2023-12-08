@@ -2,10 +2,10 @@
 
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Ubuntu 23.04 (Lunar Lobster) (Realeased Mey 11 2023)
-    Linux Kernel 6.2
-    GNOME Shell 44
-    Gnome Kernel 6.2.0
+Ubuntu 23.10 (Mantic Minotaur) (Realeased May 11 2023)
+    Linux Kernel 6.5
+    GNOME Shell 45
+    Gnome Kernel 6.5.0
     Shell: bash 5.2.15
     
 COMMENT
@@ -72,16 +72,16 @@ sudo snap install code --classic
 #sudo snap install spotify #Spotify
 sudo snap install discord #Discord
 sudo snap install inkscape #Inkscape
-sudo snap install notion-snap-reborn #Notion
+#sudo snap install notion-snap-reborn #Notion
 sudo apt install vlc -y #VLC Media Player
-#sudo snap install emote
+sudo snap install emote
 sudo snap install obsidian
-sudo snap install onlyoffice-desktopeditors -y
+sudo snap install onlyoffice-desktopeditors
 
 # Instalando Dropbox
-curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-sudo apt install ./dropbox_2020.03.04_amd64.deb -y
-sudo rm ./dropbox_2020.03.04_amd64.deb
+#curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
+#sudo apt install ./dropbox_2020.03.04_amd64.deb -y
+#sudo rm ./dropbox_2020.03.04_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
 # sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
@@ -94,11 +94,11 @@ sudo apt-get install calibre -y
 #sudo touch /etc/profile.d/calibre.sh
 #sudo echo "export CALIBRE_USE_DARK_PALETTE=1" >> /etc/profile.d/calibre.sh
 
-## Instalando o NordVPN & NordPass
-#sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
-#sleep 1
-#sudo usermod -aG nordvpn $USER
-#sudo snap install nordpass
+# Instalando o NordVPN & NordPass
+sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+sleep 1
+sudo usermod -aG nordvpn $USER
+sudo snap install nordpass
 
 ## Instalando o Deskreen
 #wget https://github.com/pavlobu/deskreen/releases/download/v2.0.4/deskreen_2.0.4_amd64.deb
@@ -128,10 +128,10 @@ sudo snap install gh
 # Instalando o pyenv e o Python
 #-----------------------------------------------------------------------------------------
 ## Instalando o gerenciador de pacotes do Python
-sudo apt install python3-pip -y
-python3 -m pip install --upgrade pip
+#sudo apt install python3-pip -y
+#python3 -m pip install --upgrade pip
 #sudo apt install python3.8-venv
-pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
+#pip install pipx #Permite instalações locais em um ambiente global sem polui-lo
 
 ## Instalando outros pacotes importantes do Python
 #pip install cython #Adiciona funcionalidades da linguagem C ao Python
@@ -176,18 +176,18 @@ eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 #-----------------------------------------------------------------------------------------
 # Instalando o R
 #-----------------------------------------------------------------------------------------
-sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
-echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
-sudo apt update
-sudo apt install r-base -y
-R --version
+#sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common -y
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+#wget -O- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/cran.gpg
+#echo deb [signed-by=/usr/share/keyrings/cran.gpg] https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/ | sudo tee /etc/apt/sources.list.d/cran.list
+#sudo apt update
+#sudo apt install r-base -y
+#R --version
 
 ## Instalando o RStudio
-wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.06.0-421-amd64.deb
-sudo apt install -f ./rstudio-2023.06.0-421-amd64.deb -y
-sudo rm ./rstudio-2023.06.0-421-amd64.deb
+#wget https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.06.0-421-amd64.deb
+#sudo apt install -f ./rstudio-2023.06.0-421-amd64.deb -y
+#sudo rm ./rstudio-2023.06.0-421-amd64.deb
 
 
 #-----------------------------------------------------------------------------------------
@@ -211,22 +211,20 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Super>
 gsettings set org.gnome.desktop.wm.keybindings maximize ['<Super>up']
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Alt>F10', '<Super>m']
 gsettings set org.gnome.desktop.wm.keybindings minimize ['<Super>h']
-# VSCode
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "VSCode" 
-# Notion
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>n"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "notion-snap-reborn"
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Notion"
-
+## VSCode
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>c"
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "code"
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "VSCode" 
+## Notion
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding "<Super>n"
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command "notion-snap-reborn"
+#gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Notion"
 
 dconf load '/org/gnome/desktop/wm/keybindings/' < ./PopOS/configs/keybindings.dconf
 dconf load '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/' < ./PopOS/configs/custom-keybindings.dconf
 
 ## Criando um arquivo com aliases para comandos resumidos
 echo "alias upd='sudo apt update && sudo apt upgrade'" >> ~/.bash_aliases
-
 
 #-----------------------------------------------------------------------------------------
 # Arrumando o menu de boot no ****Pop!OS****
