@@ -36,6 +36,9 @@ sudo apt install obs-studio -y
 sudo apt install speedtest-cli
 sudo apt install shotwell -y
 
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt update
+sudo apt install grub-customizer -y
 
 ## Instalando IriunWebcam
 #wget https://iriun.gitlab.io/iriunwebcam-2.8.deb
@@ -61,6 +64,7 @@ sudo rm ./google-chrome-stable_current_amd64.deb
 sudo apt install gnome-tweaks
 sudo apt install gnome-shell-extensions -y
 sudo apt install chrome-gnome-shell
+sudo apt install rclone
 
 ## Instalando o VSCode
 sudo snap install code --classic
@@ -75,7 +79,7 @@ sudo snap install inkscape #Inkscape
 #sudo snap install notion-snap-reborn #Notion
 sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
-sudo snap install obsidian
+sudo snap install obsidian --classic
 sudo snap install onlyoffice-desktopeditors
 
 # Instalando Dropbox
