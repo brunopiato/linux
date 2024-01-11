@@ -75,12 +75,17 @@ sudo snap install code --classic
 #sudo snap install drawio #Drawio
 #sudo snap install spotify #Spotify
 sudo snap install discord #Discord
-sudo snap install inkscape #Inkscape
+#sudo snap install inkscape #Inkscape
 #sudo snap install notion-snap-reborn #Notion
 sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
 sudo snap install obsidian --classic
 sudo snap install onlyoffice-desktopeditors
+
+# Instalando Inkscape
+sudo add-apt-repository ppa:inkscape.dev/stable
+sudo apt update
+sudo apt install inkscape
 
 # Instalando Dropbox
 #curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
