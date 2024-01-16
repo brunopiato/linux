@@ -271,19 +271,19 @@ sleep 1
 read -p "Gostaria de instalar e configurar o OneDrive agora? [S/N]: " resposta
 if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	sudo apt install rclone
-    mkdir OneDrive
+    mkdir ~/OneDrive
     rclone config
     rclone --vfs-cache-mode writes mount "OneDrive":  ~/OneDrive
     echo "[Desktop Entry]
 Type=Application
-Exec=sh -c "rclone --vfs-cache-mode writes mount \\"OneDrive\\": ~/OneDrive"\n
+Exec=sh -c 'rclone --vfs-cache-mode writes mount \\"OneDrive\\": ~/OneDrive'
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Name[pt_BR]=OneDrive
 Name=OneDrive
 Comment[pt_BR]=
-Comment=" >> ~/.config/autostart/sh.desktop
+Comment=" > ~/.config/autostart/sh.desktop
 else sleep 1
 	echo "Você poderá fazer a instalação mais tarde."
 fi
