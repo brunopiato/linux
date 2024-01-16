@@ -88,9 +88,9 @@ sudo apt update
 sudo apt install inkscape
 
 # Instalando Dropbox
-#curl https://linux.dropbox.com/packages/ubuntu/dropbox_2020.03.04_amd64.deb --output dropbox_2020.03.04_amd64.deb
-#sudo apt install ./dropbox_2020.03.04_amd64.deb -y
-#sudo rm ./dropbox_2020.03.04_amd64.deb
+curl https://linux.dropbox.com/packages/ubuntu/dropbox_2023.09.06_amd64.deb --output dropbox_2023.09.06_amd64.deb
+sudo apt install ./dropbox_2023.09.06_amd64.deb -y
+sudo rm ./dropbox_2023.09.06_amd64.deb
 
 ## Instalando um colorizador de folders para o Nautilus
 # sudo add-apt-repository ppa:costales/yaru-colors-folder-color #Adicionar o repositório PPA
