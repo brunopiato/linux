@@ -21,21 +21,22 @@ sudo apt update && sudo apt upgrade
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
 ## Instalando utilitários do Ubuntu
+#sudo apt install snapd -y
+#sudo snap install snap-store
+#sudo apt install neovim -y
 sudo apt install tree
 sudo apt install neofetch -y
 sudo apt install curl
-#sudo apt install snapd -y
-#sudo snap install snap-store
 sudo apt install gparted -y
 sudo apt install os-prober -y 
 sudo apt install unzip
 sudo apt install dconf-editor
-#sudo apt install neovim -y
 sudo apt install gimp -y
 sudo apt install obs-studio -y
 sudo apt install speedtest-cli
 sudo apt install shotwell -y
 
+# Instalando Grub Customizer
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer
 sudo apt update
 sudo apt install grub-customizer -y
@@ -74,9 +75,9 @@ sudo snap install code --classic
 #sudo snap install dbeaver-ce #DBeaver
 #sudo snap install drawio #Drawio
 #sudo snap install spotify #Spotify
-sudo snap install discord #Discord
 #sudo snap install inkscape #Inkscape
 #sudo snap install notion-snap-reborn #Notion
+sudo snap install discord #Discord
 sudo apt install vlc -y #VLC Media Player
 sudo snap install emote
 sudo snap install obsidian --classic
@@ -266,16 +267,34 @@ fi
 #-----------------------------------------------------------------------------------------
 # Mensagem final
 #-----------------------------------------------------------------------------------------
-neofetch
-sleep 2
-echo "A LISTA COM AS EXTENSÕES DO GNOME-SHELL RECOMENDADAS PARA SEREM INSTALADAS ESTÃO SALVAS EM ~/lista_ext.txt.
-VÁ ATÉ LÁ VERIFICÁ-LAS."
-echo ""
 sleep 1
-echo "A instalação terminou, mas precisamos reiniciar o computador."
-sleep 1
-read -p "Reiniciar agora?[S/N]: " resposta
+read -p "Gostaria de instalar e configurar o OneDrive agora? [S/N]: " resposta
+if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
+	sudo apt install rclone
+    mkdir OneDrive
+    rclone config
+    rclone --vfs-cache-mode writes mount "OneDrive":  ~/OneDrive
+    echo "[Desktop Entry]
+Type=Application
+Exec=sh -c "rclone --vfs-cache-mode writes mount \\"OneDrive\\": ~/OneDrive"\n
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[pt_BR]=OneDrive
+Name=OneDrive
+Comment[pt_BR]=
+Comment=" >> ~/.config/autostart/sh.desktop
+else sleep 1
+	echo "Você poderá fazer a instalação mais tarde."
+fi
 
+sleep 1
+neofetch
+# sleep 2
+# echo "A LISTA COM AS EXTENSÕES DO GNOME-SHELL RECOMENDADAS PARA SEREM INSTALADAS ESTÃO SALVAS EM ~/lista_ext.txt.
+# VÁ ATÉ LÁ VERIFICÁ-LAS."
+# echo ""
+read -p "A instalação terminou, mas precisamos reiniciar o computador. Reiniciar agora? [S/N]: " resposta
 if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	reboot
 else sleep 2
