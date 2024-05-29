@@ -1,0 +1,9 @@
+[custom0]
+binding='<Super>c'
+command='code'
+name='VSCode'
+
+[custom1]
+binding='<Super>n'
+command='notion-snap-reborn'
+name='Notion'
