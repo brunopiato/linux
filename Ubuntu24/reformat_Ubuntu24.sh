@@ -2,7 +2,7 @@
 
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Ubuntu 23.10 (Mantic Minotaur) (Realeased May 11 2023)
+Ubuntu 24.04 ()
     Linux Kernel 6.5
     GNOME Shell 45
     Gnome Kernel 6.5.0
