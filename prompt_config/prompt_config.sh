@@ -23,7 +23,7 @@ fc-cache -f -v
 curl -sS https://starship.rs/install.sh | sh
 
 # Copiar a configuração do starship
-cp /home/bruno/repos/linux/prompt_config/starship.toml ~/.config
+cp ~/repos/linux/prompt_config/starship.toml ~/.config
 
 # Adicionar o ativador do starship ao arquivo .bashrc
 sudo echo 'eval "$(starship init bash)"' >> ~/.bashrc

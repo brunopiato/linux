@@ -1,12 +1,13 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Arquivo de configuração do sistema após formatação
 : << 'COMMENT'
-Ubuntu 24.04 ()
-    Linux Kernel 6.5
-    GNOME Shell 45
-    Gnome Kernel 6.5.0
-    Shell: bash 5.2.15
+Ubuntu 24.04.3 LTS (Noble)
+    Linux Kernel 6.14.0-37-generic
+    GNOME Shell 46
+    Shell: bash 5.2.21
     
 COMMENT
 
@@ -19,6 +20,10 @@ sudo apt update && sudo apt upgrade
 #-----------------------------------------------------------------------------------------
 # Instalações básicas
 #-----------------------------------------------------------------------------------------
+git config --global user.name "brunopiato"
+git config --global user.email "piatobio@gmail.com"
+
+
 sudo apt install -y tree neofetch curl gparted os-prober unzip dconf-editor rclone vlc calibre gedit gdebi
 
 # Instalando Grub-Customizer
@@ -32,7 +37,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb -y
 sudo rm ./google-chrome-stable_current_amd64.deb
 
 # Instalando as extensões do GNOME
-sudo apt install gnome-tweaks gnome-shell-extensions chrome-gnome-shell
+sudo apt install gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell-extension-manager
 
 # Instalando coisas com snap
 sudo snap install code --classic
@@ -50,15 +55,6 @@ gsettings set org.gnome.desktop.wm.keybindings maximize "['<Super>up']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Alt>F10', '<Super>m']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>h']"
 
-#-----------------------------------------------------------------------------------------
-# Instalando o cliente GitHub
-#-----------------------------------------------------------------------------------------
-type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
 
 #-----------------------------------------------------------------------------------------
 # Instalando o pyenv
@@ -73,6 +69,14 @@ export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+
+source ~/.bashrc
+
+echo "Instalando Python 3.12.0 no pyenv"
+pyenv install 3.12.0
+echo "Definindo Python 3.12.0 como interpretador global do computador"
+pyenv global 3.12.0
+echo "Versão Python: $(python --version)"
 
 
 #-----------------------------------------------------------------------------------------
@@ -123,5 +127,6 @@ read -p "A instalação terminou, mas precisamos reiniciar o computador. Reinici
 if [ "$resposta" = "S" ] || [ "$resposta" = "s" ]; then
 	reboot
 else sleep 2
+	source ~/.bashrc
 	echo "Reinicie o computador assim que possível."
 fi
