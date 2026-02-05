@@ -14,7 +14,7 @@ COMMENT
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 
 
 #-----------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ git config --global user.name "brunopiato"
 git config --global user.email "piatobio@gmail.com"
 
 
-sudo apt install -y tree neofetch curl gparted os-prober unzip dconf-editor rclone vlc calibre gedit gdebi
+sudo apt install -y tree neofetch curl gparted os-prober unzip dconf-editor rclone vlc calibre gedit gdebi notepadqq
 
 # Instalando Grub-Customizer
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer
@@ -77,6 +77,37 @@ pyenv install 3.12.0
 echo "Definindo Python 3.12.0 como interpretador global do computador"
 pyenv global 3.12.0
 echo "Versão Python: $(python --version)"
+
+
+#-----------------------------------------------------------------------------------------
+# Instalando Docker
+#-----------------------------------------------------------------------------------------
+echo "Iniciando a instalação do Docker"
+sudo apt remove docker docker-engine docker.io containerd runc
+sudo apt install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+    
+sudo mkdir -p /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+  
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+  https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" \
+  | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo usermod -aG docker $USER
 
 
 #-----------------------------------------------------------------------------------------
