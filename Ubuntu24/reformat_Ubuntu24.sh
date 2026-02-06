@@ -11,6 +11,7 @@ Ubuntu 24.04.3 LTS (Noble)
     
 COMMENT
 
+
 #-----------------------------------------------------------------------------------------
 # Atualizando o sistema
 #-----------------------------------------------------------------------------------------
@@ -23,26 +24,30 @@ sudo apt update && sudo apt upgrade -y
 git config --global user.name "brunopiato"
 git config --global user.email "piatobio@gmail.com"
 
+sudo apt install -y tree neofetch curl gparted os-prober unzip dconf-editor rclone vlc calibre gedit gdebi notepadqq timeshift
 
-sudo apt install -y tree neofetch curl gparted os-prober unzip dconf-editor rclone vlc calibre gedit gdebi notepadqq
 
 # Instalando Grub-Customizer
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer
 sudo apt update
 sudo apt install grub-customizer -y
 
+
 # Instalando o Google Chrome
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 sudo rm ./google-chrome-stable_current_amd64.deb
 
+
 # Instalando as extensões do GNOME
-sudo apt install gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell-extension-manager
+sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell-extension-manager
+
 
 # Instalando coisas com snap
 sudo snap install code --classic
 sudo snap install discord emote onlyoffice-desktopeditors
 sudo snap install obsidian --classic
+
 
 # Configurações de teclado
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>t', '<Super>t']" #Adicionar o Super+T para o terminal
@@ -63,51 +68,43 @@ sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev librea
 
 curl https://pyenv.run | bash
 
-sudo echo '# Comandos do pyenv
+cat << 'EOF' >> ~/.bashrc
+# Comandos do pyenv
 export PYTHON_BUILD_ARIA2_OPTS="-x 10 -k 1M"
-export PATH="~/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-
-source ~/.bashrc
-
-echo "Instalando Python 3.12.0 no pyenv"
-pyenv install 3.12.0
-echo "Definindo Python 3.12.0 como interpretador global do computador"
-pyenv global 3.12.0
-echo "Versão Python: $(python --version)"
+eval "$(pyenv virtualenv-init -)"
+EOF
 
 
 #-----------------------------------------------------------------------------------------
 # Instalando Docker
 #-----------------------------------------------------------------------------------------
-#echo "Iniciando a instalação do Docker"
-#sudo apt remove docker docker-engine docker.io containerd runc
-#sudo apt install -y \
-#    ca-certificates \
-#    curl \
-#    gnupg \
-#    lsb-release
-    
-#sudo mkdir -p /etc/apt/keyrings
 
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
-#  | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-  
-#sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo "Iniciando a instalação do Docker"
+sudo apt remove -y docker docker-engine docker.io containerd runc
 
-#echo \
-#  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
-#  https://download.docker.com/linux/ubuntu \
-#  $(lsb_release -cs) stable" \
-#  | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt install -y ca-certificates curl gnupg lsb-release
 
-#sudo apt update
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-#sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-#sudo usermod -aG docker $USER
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo usermod -aG docker $USER
+
+sudo systemctl enable docker
 
 
 #-----------------------------------------------------------------------------------------
