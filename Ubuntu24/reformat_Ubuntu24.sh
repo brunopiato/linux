@@ -42,6 +42,9 @@ sudo rm ./google-chrome-stable_current_amd64.deb
 # Instalando as extensões do GNOME
 sudo apt install -y gnome-tweaks gnome-shell-extensions chrome-gnome-shell gnome-shell-extension-manager
 
+# Definindo o papel de parede
+gsettings set org.gnome.desktop.background picture-uri-dark "file:///home/bruno/repos/linux/wallpapers/snowy-mountains-sunset.jpg"
+gsettings set org.gnome.desktop.background picture-uri "file:///home/bruno/repos/linux/wallpapers/snowy-mountains-sunset.jpg"
 
 # Instalando coisas com snap
 sudo snap install code --classic
