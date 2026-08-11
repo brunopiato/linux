@@ -60,6 +60,12 @@ truncation_symbol = "…/"
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
+"data-solutions-onboarding-resources" = "data-solutions-or"
+"innocent_distribution_planning" = "innocent-dp"
+"jde-freight-cost-calculator" = "jde-fcc"
+"postgresql-testing-env" = "postgresql-te"
+"stellantis-premium-request-automation" = "stellantis-pra"
+"tech_community_spot_price" = "tech-csp"
 #"Documents" = " "
 #"Downloads" = " "
 #"Music" = " "
@@ -92,7 +98,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "fg:#1F2937 bg:#FCA17D"
 format = '[ $symbol $branch ]($style)'
 always_show_remote = true
 
