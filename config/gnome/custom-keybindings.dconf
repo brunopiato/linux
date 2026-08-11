@@ -1,0 +1,9 @@
+[custom0]
+binding='<Super>c'
+command='code'
+name='VS Code'
+
+[custom1]
+binding='<Super>n'
+command='obsidian'
+name='Obsidian'

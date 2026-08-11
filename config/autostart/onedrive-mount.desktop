@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=rclone --vfs-cache-mode writes mount OneDrive: %h/OneDrive
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=OneDrive AutoMount
+Comment=Montagem automática do OneDrive via rclone

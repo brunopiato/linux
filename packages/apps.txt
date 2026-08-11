@@ -1,0 +1,9 @@
+build-essential
+calibre
+dconf-editor
+gdebi
+gparted
+os-prober
+rclone
+timeshift
+vlc

@@ -1,0 +1,11 @@
+# Um pacote por linha
+ca-certificates
+curl
+fastfetch
+fontconfig
+git
+gnupg
+lsb-release
+tree
+unzip
+wget
